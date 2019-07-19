@@ -14,8 +14,16 @@ class MeetupAPIManager {
     private init(){}
     
     static let shared = MeetupAPIManager()
-    var completionHandler: ((Error?) -> Void)?
     
+//    var completionHandler: ((Error?) -> Void)? {
+//        if self.hasOAuthToken() {
+//            if let comletionHandler = self.completionHandler {
+//                comletionHandler(nil)
+//            }
+//        }
+//        return completionHandler(error)
+//    }
+//    
     var clientId = "pl35cjq6c05lqdjujqhb3tcggt"
     
     let clientSecret = "aj1bqb98cjk521h8t4il2473sr"
@@ -26,6 +34,9 @@ class MeetupAPIManager {
     let redirectURI = "deeplink://entry"
     
     func hasOAuthToken() -> Bool {
+        if let token = self.OAuthToken {
+            return token.isEmpty
+        }
         return false
     }
     
@@ -63,8 +74,8 @@ class MeetupAPIManager {
                 if let data = data {
                     do {
                         let sucess = try JSONDecoder().decode(AccessTokenSucessModel.self, from: data)
-                        print(sucess)
-                        
+                        self.OAuthToken = sucess.accessToken
+                        //  MeetupDataHandler().accessToken = sucess.accessToken
                     } catch {
                         do {
                             let failure = try JSONDecoder().decode(AccessTokenFailureModel.self, from: data)
