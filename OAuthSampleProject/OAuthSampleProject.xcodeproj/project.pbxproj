@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B94674C22E1FE90001C6C52 /* AccessTokenSucessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94674B22E1FE90001C6C52 /* AccessTokenSucessModel.swift */; };
 		5B94674E22E1FEA5001C6C52 /* AccessTokenFailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94674D22E1FEA5001C6C52 /* AccessTokenFailureModel.swift */; };
-		5B94675122E23B31001C6C52 /* MeetupUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94675022E23B31001C6C52 /* MeetupUserModel.swift */; };
+		5B94675322E23EF5001C6C52 /* MeetupUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94675222E23EF5001C6C52 /* MeetupUserModel.swift */; };
+		5B94675522E2486F001C6C52 /* MeetupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94675422E2486F001C6C52 /* MeetupDataHandler.swift */; };
+		5B94675722E24A03001C6C52 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94675622E24A03001C6C52 /* AppError.swift */; };
 		5BEBF5FC22DF660E00CECC2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBF5FB22DF660E00CECC2A /* AppDelegate.swift */; };
 		5BEBF5FE22DF660E00CECC2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBF5FD22DF660E00CECC2A /* ViewController.swift */; };
 		5BEBF60122DF660E00CECC2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBF5FF22DF660E00CECC2A /* Main.storyboard */; };
@@ -35,7 +37,9 @@
 		322E0A80F59ACC9366F02D37 /* Pods-OAuthSampleProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuthSampleProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-OAuthSampleProjectTests/Pods-OAuthSampleProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B94674B22E1FE90001C6C52 /* AccessTokenSucessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenSucessModel.swift; sourceTree = "<group>"; };
 		5B94674D22E1FEA5001C6C52 /* AccessTokenFailureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenFailureModel.swift; sourceTree = "<group>"; };
-		5B94675022E23B31001C6C52 /* MeetupUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupUserModel.swift; sourceTree = "<group>"; };
+		5B94675222E23EF5001C6C52 /* MeetupUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupUserModel.swift; sourceTree = "<group>"; };
+		5B94675422E2486F001C6C52 /* MeetupDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDataHandler.swift; sourceTree = "<group>"; };
+		5B94675622E24A03001C6C52 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5BEBF5F822DF660E00CECC2A /* OAuthSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEBF5FB22DF660E00CECC2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BEBF5FD22DF660E00CECC2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				5BEBF61B22DF66C200CECC2A /* MeetupApiManager.swift */,
+				5B94675422E2486F001C6C52 /* MeetupDataHandler.swift */,
+				5B94675622E24A03001C6C52 /* AppError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -132,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				5B94674B22E1FE90001C6C52 /* AccessTokenSucessModel.swift */,
-				5B94675022E23B31001C6C52 /* MeetupUserModel.swift */,
 				5B94674D22E1FEA5001C6C52 /* AccessTokenFailureModel.swift */,
+				5B94675222E23EF5001C6C52 /* MeetupUserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -332,10 +338,12 @@
 			files = (
 				5BEBF5FE22DF660E00CECC2A /* ViewController.swift in Sources */,
 				5B94674C22E1FE90001C6C52 /* AccessTokenSucessModel.swift in Sources */,
-				5B94675122E23B31001C6C52 /* MeetupUserModel.swift in Sources */,
 				5BEBF5FC22DF660E00CECC2A /* AppDelegate.swift in Sources */,
 				5BEBF61C22DF66C200CECC2A /* MeetupApiManager.swift in Sources */,
+				5B94675722E24A03001C6C52 /* AppError.swift in Sources */,
 				5B94674E22E1FEA5001C6C52 /* AccessTokenFailureModel.swift in Sources */,
+				5B94675322E23EF5001C6C52 /* MeetupUserModel.swift in Sources */,
+				5B94675522E2486F001C6C52 /* MeetupDataHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

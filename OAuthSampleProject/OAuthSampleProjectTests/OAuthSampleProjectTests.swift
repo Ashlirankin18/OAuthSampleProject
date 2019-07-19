@@ -10,25 +10,33 @@ import XCTest
 @testable import OAuthSampleProject
 
 class OAuthSampleProjectTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testRetrieveMeetupUser() {
+       
+        let accessToke = "f997b6f06f09fd96488846b9c5997036"
+        let exp = expectation(description: "retrieve the user object from an endpoint")
+        if let url = URL(string: "https://api.meetup.com/members/self") {
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "Get"
+            urlRequest.addValue("-H Authorization: Bearer {\(accessToke)}", forHTTPHeaderField: "")
+            URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+                if let error = error {
+                    XCTFail("there was an error:\(error.localizedDescription)")
+                }
+                if let data = data {
+                    do {
+                        let user = try JSONDecoder().decode(MeetupUserModel.self, from: data)
+                        print(user)
+                       
+                        XCTAssertEqual("ashilt", user.userName, "names are no equal")
+                        exp.fulfill()
+                    } catch {
+                      XCTFail("could not retrieve data from URLRequest")
+                    }
+                }
+  
+            }.resume()
         }
+        wait(for: [exp], timeout:3.0)
     }
-
 }
